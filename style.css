@@ -229,6 +229,7 @@ button:focus-visible {
     radial-gradient(circle at top, rgba(255, 228, 180, 0.25), transparent 50%),
     rgba(253, 246, 236, 0.6);
   backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   transition: opacity 240ms ease, visibility 240ms ease;
 }
 
@@ -246,7 +247,8 @@ button:focus-visible {
   background: var(--card);
   box-shadow: var(--shadow);
   text-align: center;
-  animation: card-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: card-enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
 }
 
 @keyframes card-enter {
@@ -267,7 +269,8 @@ button:focus-visible {
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  will-change: transform, opacity;
 }
 
 .start-card h1 {
@@ -275,7 +278,8 @@ button:focus-visible {
   color: var(--ink);
   font-size: clamp(2.2rem, 6vw, 4rem);
   line-height: 0.96;
-  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+  will-change: transform, opacity;
 }
 
 .intro {
@@ -283,7 +287,8 @@ button:focus-visible {
   color: var(--ink-soft);
   font-size: clamp(1rem, 2.6vw, 1.18rem);
   line-height: 1.45;
-  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+  will-change: transform, opacity;
 }
 
 @keyframes fade-up {
@@ -301,7 +306,22 @@ button:focus-visible {
   display: grid;
   gap: 0.85rem;
   margin-top: 1.6rem;
-  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+  will-change: transform, opacity;
+}
+
+.github-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--ink-soft);
+  opacity: 0.45;
+  transition: opacity 200ms ease;
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  will-change: transform, opacity;
+}
+
+.github-link:hover {
+  opacity: 0.9;
 }
 
 .action {
@@ -608,7 +628,8 @@ button:focus-visible {
   .eyebrow,
   .start-card h1,
   .intro,
-  .actions {
+  .actions,
+  .github-link {
     animation: none;
   }
 }
