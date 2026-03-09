@@ -340,6 +340,20 @@ page.addEventListener("touchmove", (e) => {
   if (e.touches.length > 1) e.preventDefault();
 }, { passive: false });
 
+// ── Opening animation (GSAP) ────────────────────────────────────────
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const dur = prefersReducedMotion ? 0 : undefined;
+
+const introTl = gsap.timeline({ defaults: { ease: "power3.out", duration: dur ?? 0.6 } });
+introTl
+  .to(".start-card", { opacity: 1, y: 0, duration: dur ?? 0.7 })
+  .to(".eyebrow", { opacity: 1, y: 0 }, "-=0.35")
+  .to(".start-card h1", { opacity: 1, y: 0 }, "-=0.4")
+  .to(".intro", { opacity: 1, y: 0 }, "-=0.35")
+  .to(".actions", { opacity: 1, y: 0 }, "-=0.3")
+  .to(".github-link", { opacity: 1, y: 0 }, "-=0.3");
+
 // ── Boot ───────────────────────────────────────────────────────────────
 
 syncFullscreenState();
