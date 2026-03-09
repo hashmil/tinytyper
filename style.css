@@ -52,6 +52,15 @@ button:focus-visible {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  background: var(--bg);
+}
+
+/* Prevent black backdrop in fullscreen on dark mode OS */
+#app:fullscreen {
+  background: var(--bg);
+}
+#app:-webkit-full-screen {
+  background: var(--bg);
 }
 
 /* ── Typing page ────────────────────────────────────────────────────── */
