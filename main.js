@@ -341,7 +341,7 @@ const THEME_DECOR_SVG = {
     </svg>
   `,
   sunset: `
-    <svg viewBox="0 0 200 100" style="width:160px;left:2%;bottom:15%;opacity:0.06">
+    <svg viewBox="0 0 200 100" style="width:140px;left:3%;bottom:15%;opacity:0.06">
       <circle cx="100" cy="80" r="40" fill="currentColor"/>
       <line x1="100" y1="30" x2="100" y2="15" stroke="currentColor" stroke-width="2"/>
       <line x1="130" y1="40" x2="140" y2="28" stroke="currentColor" stroke-width="2"/>
