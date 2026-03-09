@@ -14,6 +14,11 @@ const COLORS = [
   "#2D8F5E", "#7B4FBF", "#E06230", "#5C4033",
 ];
 
+const COLORS_DARK = [
+  "#E0E8F5", "#FF7EB3", "#64B5F6", "#FFD54F",
+  "#81C784", "#B39DDB", "#FF8A65", "#BCAAA4",
+];
+
 export function createEditor(container) {
   let fontIndex = 0;
   let color = COLORS[0];
@@ -72,6 +77,24 @@ export function createEditor(container) {
     return color;
   }
 
+  let activeColors = COLORS;
+
+  function setDarkMode(isDark) {
+    activeColors = isDark ? COLORS_DARK : COLORS;
+    // Update current color to corresponding position in new palette
+    const oldPalette = isDark ? COLORS : COLORS_DARK;
+    const idx = oldPalette.indexOf(color);
+    if (idx !== -1) {
+      color = activeColors[idx];
+    } else {
+      color = activeColors[0];
+    }
+  }
+
+  function getActiveColors() {
+    return activeColors;
+  }
+
   return {
     addChar,
     addNewline,
@@ -80,10 +103,13 @@ export function createEditor(container) {
     setFont,
     cycleFont,
     setColor,
+    setDarkMode,
     getFont,
     getFontIndex,
     getColor,
+    getActiveColors,
     FONTS,
     COLORS,
+    COLORS_DARK,
   };
 }

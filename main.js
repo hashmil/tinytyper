@@ -258,20 +258,19 @@ clearBtn.addEventListener("click", (e) => {
 // ── Toolbar: theme cycling ──────────────────────────────────────────────
 
 const THEMES = [
-  { id: "paper", label: "Paper", icon: "sun" },
-  { id: "space", label: "Space", icon: "star" },
-  { id: "princess", label: "Princess", icon: "sparkle" },
-  { id: "forest", label: "Forest", icon: "tree" },
-  { id: "ocean", label: "Ocean", icon: "wave" },
-  { id: "sunset", label: "Sunset", icon: "sunset" },
+  { id: "paper", label: "Paper", icon: "sun", dark: false },
+  { id: "space", label: "Space", icon: "star", dark: true },
+  { id: "princess", label: "Princess", icon: "sparkle", dark: false },
+  { id: "forest", label: "Forest", icon: "tree", dark: false },
+  { id: "ocean", label: "Ocean", icon: "wave", dark: false },
+  { id: "sunset", label: "Sunset", icon: "sunset", dark: false },
 ];
 
 let themeIndex = 0;
 
-// SVG decorations for each theme (subtle, low-opacity background art)
-const THEME_DECOR_SVG = {
+const THEME_DECOR_SVG_DISABLED = {
   paper: "",
-  space: `
+  space_DISABLED: `
     <!-- top border: stars and dots -->
     <svg viewBox="0 0 1000 30" preserveAspectRatio="none" style="position:absolute;top:0;left:0;width:100%;height:30px;opacity:0.1">
       <path d="M20,15 L22,9 L28,9 L23,13 L25,19 L20,16 L15,19 L17,13 L12,9 L18,9Z" fill="currentColor"/>
@@ -540,13 +539,31 @@ const THEME_DECOR_SVG = {
   `,
 };
 
+function rebuildColorDots(colors) {
+  const selectedIdx = [...colorDots.querySelectorAll(".dot")].findIndex(d => d.classList.contains("is-selected"));
+  colorDots.innerHTML = "";
+  colors.forEach((hex, i) => {
+    const dot = document.createElement("button");
+    dot.className = "dot";
+    dot.dataset.color = hex;
+    dot.style.background = hex;
+    if (i === Math.max(selectedIdx, 0)) dot.classList.add("is-selected");
+    colorDots.appendChild(dot);
+  });
+}
+
 function applyTheme(theme) {
   if (theme.id === "paper") {
     document.documentElement.removeAttribute("data-theme");
   } else {
     document.documentElement.setAttribute("data-theme", theme.id);
   }
-  themeDecor.innerHTML = THEME_DECOR_SVG[theme.id] || "";
+  themeDecor.innerHTML = "";
+
+  // Swap color palette for dark themes
+  const isDark = theme.dark;
+  editor.setDarkMode(isDark);
+  rebuildColorDots(editor.getActiveColors());
 }
 
 themeBtn.addEventListener("click", (e) => {
