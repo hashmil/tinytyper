@@ -15,7 +15,7 @@
   --font-bubblegum: "Bubblegum Sans", cursive;
   --font-patrick: "Patrick Hand", cursive;
   --font-active: var(--font-fredoka);
-  --char-size: clamp(3rem, 8vw, 6rem);
+  --char-size: clamp(5rem, 12vw, 10rem);
 }
 
 * {
