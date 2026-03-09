@@ -5,9 +5,13 @@
 
 A minimal typing toy for toddlers — big bouncy letters, bright colours, and happy writing.
 
+**[Try it live](https://tinytyper.pages.dev/)**
+
+![Tiny Typer screenshot](screenshot.png)
+
 No build tools, no npm, no dependencies — just four static files served from a folder.
 
-> The 2D sibling of [Tiny Fingers](https://github.com/nickhash/tinyfingers) — same idea, simpler execution.
+> The 2D sibling of [Tiny Fingers](https://tinyfingers.pages.dev/) ([GitHub](https://github.com/hashmil/tinyfingers)) — same idea, simpler execution.
 
 ## How it works
 
