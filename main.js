@@ -272,87 +272,142 @@ let themeIndex = 0;
 const THEME_DECOR_SVG = {
   paper: "",
   space: `
-    <svg viewBox="0 0 200 200" style="width:120px;right:5%;top:8%;opacity:0.06">
-      <circle cx="100" cy="100" r="40" fill="currentColor"/>
-      <circle cx="100" cy="100" r="55" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 6"/>
-      <circle cx="60" cy="45" r="6" fill="currentColor"/>
+    <!-- rocket -->
+    <svg viewBox="0 0 80 120" style="width:90px;right:4%;top:6%;opacity:0.07">
+      <path d="M40,5 C40,5 55,25 55,60 L65,80 L55,75 L55,90 L45,82 L40,95 L35,82 L25,90 L25,75 L15,80 L25,60 C25,25 40,5 40,5Z" fill="currentColor"/>
+      <circle cx="40" cy="45" r="8" fill="currentColor" opacity="0.3"/>
     </svg>
-    <svg viewBox="0 0 100 100" style="width:60px;left:8%;top:15%;opacity:0.05">
-      <polygon points="50,5 61,35 95,35 67,55 78,85 50,65 22,85 33,55 5,35 39,35" fill="currentColor"/>
+    <!-- moon with craters -->
+    <svg viewBox="0 0 100 100" style="width:80px;left:5%;top:12%;opacity:0.06">
+      <circle cx="50" cy="50" r="38" fill="currentColor"/>
+      <circle cx="38" cy="35" r="8" fill="currentColor" opacity="0.3"/>
+      <circle cx="60" cy="55" r="6" fill="currentColor" opacity="0.3"/>
+      <circle cx="45" cy="65" r="4" fill="currentColor" opacity="0.3"/>
     </svg>
-    <svg viewBox="0 0 100 100" style="width:40px;right:15%;bottom:25%;opacity:0.05">
-      <polygon points="50,5 61,35 95,35 67,55 78,85 50,65 22,85 33,55 5,35 39,35" fill="currentColor"/>
+    <!-- saturn -->
+    <svg viewBox="0 0 120 80" style="width:100px;left:6%;bottom:22%;opacity:0.05">
+      <circle cx="60" cy="40" r="20" fill="currentColor"/>
+      <ellipse cx="60" cy="40" rx="50" ry="10" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
     </svg>
-    <svg viewBox="0 0 200 60" style="width:140px;left:10%;bottom:18%;opacity:0.04">
-      <ellipse cx="100" cy="50" rx="90" ry="8" fill="currentColor"/>
-      <path d="M30,48 Q50,10 70,48" fill="none" stroke="currentColor" stroke-width="2"/>
-      <circle cx="50" cy="20" r="8" fill="currentColor"/>
-      <path d="M120,48 Q140,20 160,48" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <!-- small star -->
+    <svg viewBox="0 0 50 50" style="width:35px;right:10%;bottom:30%;opacity:0.06">
+      <path d="M25,2 L30,18 L47,18 L33,28 L38,45 L25,35 L12,45 L17,28 L3,18 L20,18Z" fill="currentColor"/>
     </svg>
   `,
   princess: `
-    <svg viewBox="0 0 100 100" style="width:80px;right:6%;top:10%;opacity:0.07">
-      <path d="M50,10 L55,40 L85,45 L55,50 L50,80 L45,50 L15,45 L45,40 Z" fill="currentColor"/>
+    <!-- tiara/crown -->
+    <svg viewBox="0 0 120 80" style="width:100px;right:4%;top:8%;opacity:0.07">
+      <path d="M15,65 L25,20 L40,45 L60,8 L80,45 L95,20 L105,65Z" fill="currentColor"/>
+      <circle cx="60" cy="18" r="5" fill="currentColor" opacity="0.4"/>
+      <circle cx="25" cy="28" r="4" fill="currentColor" opacity="0.4"/>
+      <circle cx="95" cy="28" r="4" fill="currentColor" opacity="0.4"/>
+      <rect x="10" y="62" width="100" height="10" rx="3" fill="currentColor"/>
     </svg>
-    <svg viewBox="0 0 100 100" style="width:50px;left:8%;top:20%;opacity:0.05">
-      <path d="M50,10 L55,40 L85,45 L55,50 L50,80 L45,50 L15,45 L45,40 Z" fill="currentColor"/>
+    <!-- magic wand with star -->
+    <svg viewBox="0 0 80 120" style="width:60px;left:6%;top:18%;opacity:0.06">
+      <line x1="20" y1="110" x2="55" y2="30" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <path d="M55,5 L58,18 L70,20 L60,27 L63,40 L55,32 L47,40 L50,27 L40,20 L52,18Z" fill="currentColor"/>
     </svg>
-    <svg viewBox="0 0 120 100" style="width:100px;left:15%;bottom:20%;opacity:0.05">
-      <path d="M60,90 C60,90 10,70 20,40 C25,25 40,20 50,30 C55,20 60,15 60,15 C60,15 65,20 70,30 C80,20 95,25 100,40 C110,70 60,90 60,90Z" fill="currentColor"/>
+    <!-- heart -->
+    <svg viewBox="0 0 100 90" style="width:80px;left:8%;bottom:20%;opacity:0.05">
+      <path d="M50,85 C50,85 5,55 5,30 C5,12 20,5 35,15 C42,5 50,8 50,8 C50,8 58,5 65,15 C80,5 95,12 95,30 C95,55 50,85 50,85Z" fill="currentColor"/>
     </svg>
-    <svg viewBox="0 0 100 80" style="width:70px;right:12%;bottom:30%;opacity:0.04">
-      <path d="M30,70 L20,25 L35,40 L50,10 L65,40 L80,25 L70,70 Z" fill="currentColor"/>
-      <ellipse cx="50" cy="72" rx="25" ry="5" fill="currentColor"/>
+    <!-- small sparkle -->
+    <svg viewBox="0 0 50 50" style="width:40px;right:8%;bottom:28%;opacity:0.05">
+      <path d="M25,0 L28,20 L48,25 L28,30 L25,50 L22,30 L2,25 L22,20Z" fill="currentColor"/>
     </svg>
   `,
   forest: `
-    <svg viewBox="0 0 100 120" style="width:80px;left:5%;bottom:15%;opacity:0.06">
-      <polygon points="50,10 80,50 65,50 90,80 70,80 95,110 5,110 30,80 10,80 35,50 20,50" fill="currentColor"/>
-      <rect x="43" y="110" width="14" height="15" fill="currentColor"/>
+    <!-- big pine tree -->
+    <svg viewBox="0 0 80 120" style="width:80px;left:4%;bottom:14%;opacity:0.07">
+      <polygon points="40,5 70,45 58,45 78,75 62,75 85,110 -5,110 18,75 2,75 22,45 10,45" fill="currentColor"/>
+      <rect x="33" y="105" width="14" height="18" fill="currentColor"/>
     </svg>
-    <svg viewBox="0 0 100 120" style="width:55px;right:8%;bottom:18%;opacity:0.05">
-      <polygon points="50,15 75,50 62,50 82,80 68,80 88,110 12,110 32,80 18,80 38,50 25,50" fill="currentColor"/>
-      <rect x="43" y="110" width="14" height="12" fill="currentColor"/>
+    <!-- mushroom -->
+    <svg viewBox="0 0 80 80" style="width:60px;right:5%;bottom:16%;opacity:0.06">
+      <ellipse cx="40" cy="35" rx="35" ry="25" fill="currentColor"/>
+      <rect x="30" y="35" width="20" height="30" rx="4" fill="currentColor" opacity="0.7"/>
+      <circle cx="28" cy="28" r="5" fill="currentColor" opacity="0.3"/>
+      <circle cx="48" cy="22" r="4" fill="currentColor" opacity="0.3"/>
+      <circle cx="38" cy="18" r="3" fill="currentColor" opacity="0.3"/>
     </svg>
-    <svg viewBox="0 0 100 60" style="width:70px;right:15%;top:10%;opacity:0.05">
-      <ellipse cx="35" cy="40" rx="30" ry="18" fill="currentColor"/>
-      <ellipse cx="65" cy="35" rx="28" ry="20" fill="currentColor"/>
-      <rect x="45" y="45" width="6" height="15" fill="currentColor"/>
+    <!-- butterfly -->
+    <svg viewBox="0 0 80 60" style="width:65px;right:8%;top:10%;opacity:0.05">
+      <ellipse cx="25" cy="20" rx="18" ry="15" fill="currentColor"/>
+      <ellipse cx="55" cy="20" rx="18" ry="15" fill="currentColor"/>
+      <ellipse cx="25" cy="42" rx="12" ry="10" fill="currentColor"/>
+      <ellipse cx="55" cy="42" rx="12" ry="10" fill="currentColor"/>
+      <rect x="38" y="10" width="4" height="40" rx="2" fill="currentColor"/>
     </svg>
-    <svg viewBox="0 0 80 80" style="width:45px;left:12%;top:12%;opacity:0.04">
-      <path d="M40,10 C45,15 60,20 55,35 C65,30 70,45 60,50 C70,55 65,70 50,65 C55,75 40,78 35,68 C25,75 15,65 25,55 C10,55 12,40 25,40 C15,30 25,18 35,25 C30,15 35,10 40,10Z" fill="currentColor"/>
+    <!-- small flower -->
+    <svg viewBox="0 0 60 60" style="width:45px;left:8%;top:10%;opacity:0.05">
+      <circle cx="30" cy="30" r="8" fill="currentColor" opacity="0.5"/>
+      <circle cx="30" cy="14" r="9" fill="currentColor"/>
+      <circle cx="30" cy="46" r="9" fill="currentColor"/>
+      <circle cx="14" cy="30" r="9" fill="currentColor"/>
+      <circle cx="46" cy="30" r="9" fill="currentColor"/>
     </svg>
   `,
   ocean: `
-    <svg viewBox="0 0 200 40" style="width:180px;left:5%;bottom:16%;opacity:0.06">
-      <path d="M0,20 Q25,5 50,20 Q75,35 100,20 Q125,5 150,20 Q175,35 200,20" fill="none" stroke="currentColor" stroke-width="3"/>
-      <path d="M0,30 Q25,18 50,30 Q75,42 100,30 Q125,18 150,30 Q175,42 200,30" fill="none" stroke="currentColor" stroke-width="2"/>
+    <!-- fish -->
+    <svg viewBox="0 0 100 60" style="width:90px;right:5%;top:10%;opacity:0.06">
+      <ellipse cx="45" cy="30" rx="32" ry="20" fill="currentColor"/>
+      <polygon points="78,30 100,10 100,50" fill="currentColor"/>
+      <circle cx="30" cy="25" r="5" fill="currentColor" opacity="0.3"/>
     </svg>
-    <svg viewBox="0 0 80 80" style="width:60px;right:8%;top:10%;opacity:0.05">
-      <circle cx="40" cy="40" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M40,15 L40,40 L58,52" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="25" cy="60" r="8" fill="currentColor" opacity="0.5"/>
-      <circle cx="55" cy="65" r="5" fill="currentColor" opacity="0.4"/>
+    <!-- starfish -->
+    <svg viewBox="0 0 80 80" style="width:65px;left:5%;bottom:18%;opacity:0.06">
+      <path d="M40,5 L46,28 L70,18 L52,35 L72,52 L48,45 L40,70 L32,45 L8,52 L28,35 L10,18 L34,28Z" fill="currentColor"/>
+      <circle cx="40" cy="36" r="6" fill="currentColor" opacity="0.3"/>
     </svg>
-    <svg viewBox="0 0 100 50" style="width:80px;left:10%;top:15%;opacity:0.04">
-      <path d="M10,40 Q20,10 40,25 Q50,5 70,20 Q85,10 95,30" fill="none" stroke="currentColor" stroke-width="2.5"/>
-      <circle cx="30" cy="38" r="4" fill="currentColor"/>
-      <circle cx="60" cy="35" r="3" fill="currentColor"/>
+    <!-- octopus -->
+    <svg viewBox="0 0 100 100" style="width:80px;left:6%;top:12%;opacity:0.05">
+      <ellipse cx="50" cy="35" rx="30" ry="25" fill="currentColor"/>
+      <circle cx="38" cy="30" r="5" fill="currentColor" opacity="0.3"/>
+      <circle cx="62" cy="30" r="5" fill="currentColor" opacity="0.3"/>
+      <path d="M25,50 Q15,70 10,85" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M33,55 Q28,75 25,90" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M42,58 Q40,78 38,92" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M58,58 Q60,78 62,92" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M67,55 Q72,75 75,90" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M75,50 Q85,70 90,85" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <!-- bubbles -->
+    <svg viewBox="0 0 50 80" style="width:35px;right:10%;bottom:25%;opacity:0.05">
+      <circle cx="25" cy="15" r="12" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <circle cx="15" cy="45" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="32" cy="60" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="20" cy="73" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
     </svg>
   `,
   sunset: `
-    <svg viewBox="0 0 200 100" style="width:140px;left:3%;bottom:15%;opacity:0.06">
-      <circle cx="100" cy="80" r="40" fill="currentColor"/>
-      <line x1="100" y1="30" x2="100" y2="15" stroke="currentColor" stroke-width="2"/>
-      <line x1="130" y1="40" x2="140" y2="28" stroke="currentColor" stroke-width="2"/>
-      <line x1="70" y1="40" x2="60" y2="28" stroke="currentColor" stroke-width="2"/>
-      <line x1="148" y1="65" x2="162" y2="60" stroke="currentColor" stroke-width="2"/>
-      <line x1="52" y1="65" x2="38" y2="60" stroke="currentColor" stroke-width="2"/>
-      <rect x="0" y="80" width="200" height="20" fill="currentColor" opacity="0.5"/>
+    <!-- sun half-setting on horizon -->
+    <svg viewBox="0 0 120 70" style="width:120px;left:4%;bottom:14%;opacity:0.07">
+      <path d="M60,60 A35,35 0 0,1 25,60" fill="none"/>
+      <circle cx="60" cy="60" r="28" fill="currentColor"/>
+      <rect x="0" y="58" width="120" height="15" fill="currentColor" opacity="0.4"/>
+      <line x1="60" y1="22" x2="60" y2="8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <line x1="85" y1="32" x2="96" y2="22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <line x1="35" y1="32" x2="24" y2="22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <line x1="98" y1="52" x2="112" y2="48" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <line x1="22" y1="52" x2="8" y2="48" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
     </svg>
-    <svg viewBox="0 0 60 60" style="width:40px;right:10%;top:12%;opacity:0.04">
-      <circle cx="30" cy="30" r="12" fill="currentColor"/>
-      <circle cx="22" cy="22" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <!-- palm tree -->
+    <svg viewBox="0 0 80 120" style="width:75px;right:4%;bottom:14%;opacity:0.06">
+      <path d="M42,120 Q44,70 40,40" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M40,42 Q10,30 2,15" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M40,42 Q60,15 78,10" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M40,38 Q20,10 5,5" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M40,38 Q65,25 75,30" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M40,40 Q50,20 45,5" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </svg>
+    <!-- bird silhouette -->
+    <svg viewBox="0 0 60 30" style="width:50px;left:10%;top:10%;opacity:0.05">
+      <path d="M0,20 Q15,5 30,15 Q45,5 60,20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <!-- another bird -->
+    <svg viewBox="0 0 40 20" style="width:30px;left:18%;top:18%;opacity:0.04">
+      <path d="M0,14 Q10,3 20,10 Q30,3 40,14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
     </svg>
   `,
 };
