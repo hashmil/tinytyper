@@ -19,6 +19,31 @@ const COLORS_DARK = [
   "#81C784", "#B39DDB", "#FF8A65", "#BCAAA4",
 ];
 
+// Letters, digits, space, and basic punctuation toddlers might use
+const KEEP_CHARS = /^[a-zA-Z0-9 .,!?]$/;
+
+const EMOJI_POOL = [
+  "😀","😂","🥰","😎","🤩","😜","🤗","😇","🥳","😺",
+  "🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐨","🐯",
+  "🦁","🐮","🐷","🐸","🐵","🐔","🐧","🐦","🦆","🦅",
+  "🦋","🐛","🐌","🐞","🐝","🐙","🐠","🐟","🐬","🐳",
+  "🐊","🦕","🦖","🐘","🦒","🦓","🦏","🐪","🐿️","🦔",
+  "🌸","🌺","🌻","🌹","🌷","🌼","🍀","🌈","⭐","🌙",
+  "☀️","⛅","❄️","🔥","💧","🌊","🍎","🍊","🍋","🍌",
+  "🍉","🍇","🍓","🫐","🍒","🍑","🥝","🍍","🥭","🥑",
+  "🧁","🍩","🍪","🎂","🍦","🍫","🍬","🍭","🧇","🥞",
+  "⚽","🏀","🎾","🏈","🎯","🪁","🛹","🚀","✈️","🚂",
+  "🚗","🚌","🚒","🚑","🏎️","🚁","⛵","🎠","🎡","🎢",
+  "🎨","🎸","🥁","🎹","🎺","🪗","🎭","🧸","🪀","🎪",
+  "👑","💎","🦄","🧜","🧚","🤖","👻","👽","🎃","🌍",
+  "❤️","🧡","💛","💚","💙","💜","🩷","🤎","🖤","🩵",
+  "🏠","🏰","⛺","🗼","🌋","🏔️","🎈","🎁","🎀","🪅",
+];
+
+function randomEmoji() {
+  return EMOJI_POOL[Math.floor(Math.random() * EMOJI_POOL.length)];
+}
+
 export function createEditor(container) {
   let fontIndex = 0;
   let color = COLORS[0];
@@ -28,9 +53,12 @@ export function createEditor(container) {
   }
 
   function addChar(ch) {
+    // Swap special characters for random emojis
+    const display = KEEP_CHARS.test(ch) ? ch : randomEmoji();
+
     const span = document.createElement("span");
     span.className = "char";
-    span.textContent = ch;
+    span.textContent = display;
     span.style.fontFamily = FONTS[fontIndex].css;
     span.style.color = color;
     container.appendChild(span);
