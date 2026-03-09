@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Tiny Typer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka:wght@400;600;700&family=Gaegu:wght@400;700&family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="theme-decor" class="theme-decor"></div>
+      <div id="page"></div>
+
+      <div id="toolbar" hidden>
+        <button id="font-btn" class="tool-btn font-btn" type="button" aria-label="Change font">Aa</button>
+        <div class="color-dots" id="color-dots">
+          <button class="dot" data-color="#2C3E50" style="background:#2C3E50" type="button" aria-label="Midnight"></button>
+          <button class="dot" data-color="#D94F7A" style="background:#D94F7A" type="button" aria-label="Berry"></button>
+          <button class="dot" data-color="#2B7CB5" style="background:#2B7CB5" type="button" aria-label="Ocean"></button>
+          <button class="dot" data-color="#E8A317" style="background:#E8A317" type="button" aria-label="Sunshine"></button>
+          <button class="dot" data-color="#2D8F5E" style="background:#2D8F5E" type="button" aria-label="Forest"></button>
+          <button class="dot" data-color="#7B4FBF" style="background:#7B4FBF" type="button" aria-label="Grape"></button>
+          <button class="dot" data-color="#E06230" style="background:#E06230" type="button" aria-label="Tangerine"></button>
+          <button class="dot" data-color="#5C4033" style="background:#5C4033" type="button" aria-label="Cocoa"></button>
+        </div>
+        <button id="theme-btn" class="tool-btn theme-btn" type="button" aria-label="Change theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <button id="clear-btn" class="tool-btn clear-btn" type="button" aria-label="Clear all text">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+            <path d="M10 11v6"></path>
+            <path d="M14 11v6"></path>
+          </svg>
+        </button>
+      </div>
+
+      <button id="fullscreen-toggle" class="fullscreen-toggle" type="button" hidden>
+        Go Full Screen
+      </button>
+
+      <section id="start-overlay" class="start-overlay">
+        <div class="start-card">
+          <p class="eyebrow">Tiny Typer</p>
+          <h1>Big letters,<br>bright colours,<br>happy writing.</h1>
+          <p class="intro">
+            Type anything and watch colourful<br>letters bounce onto&nbsp;the&nbsp;page.
+          </p>
+          <div class="actions">
+            <button id="start-fullscreen" class="action action-primary" type="button">
+              Start Full Screen
+            </button>
+            <button id="start-windowed" class="action action-secondary" type="button">
+              Start Here
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <input id="mobile-input" type="text" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-hidden="true" />
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
