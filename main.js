@@ -32,7 +32,11 @@ const editor = createEditor(page);
 
 const isIOS = /iPhone|iPod/.test(navigator.userAgent);
 
-if (isIOS) {
+// Installed as an app with display: fullscreen, there is nothing to toggle.
+const isInstalledFullscreen = window.matchMedia("(display-mode: fullscreen)").matches;
+const hideFullscreenUI = isIOS || isInstalledFullscreen;
+
+if (hideFullscreenUI) {
   if (startFullscreenBtn) startFullscreenBtn.hidden = true;
   if (startWindowedBtn) {
     startWindowedBtn.classList.remove("action-secondary");
@@ -106,7 +110,7 @@ function startApp(preferFullscreen) {
   // Update font button text
   fontBtn.style.fontFamily = editor.getFont().css;
 
-  if (!isIOS) {
+  if (!hideFullscreenUI) {
     fullscreenToggle.hidden = false;
     syncFullscreenState();
     if (preferFullscreen) enterFullscreen();
@@ -211,7 +215,6 @@ fontBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   const font = editor.cycleFont();
   fontBtn.style.fontFamily = font.css;
-  fontBtn.textContent = "Aa";
   focusMobileInput();
 });
 
@@ -268,12 +271,16 @@ const THEMES = [
 
 let themeIndex = 0;
 
+const DOT_NAMES = ["Midnight", "Berry", "Ocean", "Sunshine", "Forest", "Grape", "Tangerine", "Cocoa"];
+
 function rebuildColorDots(colors) {
   const selectedIdx = [...colorDots.querySelectorAll(".dot")].findIndex(d => d.classList.contains("is-selected"));
   colorDots.innerHTML = "";
   colors.forEach((hex, i) => {
     const dot = document.createElement("button");
+    dot.type = "button";
     dot.className = "dot";
+    dot.setAttribute("aria-label", DOT_NAMES[i] || hex);
     dot.dataset.color = hex;
     dot.style.background = hex;
     if (i === Math.max(selectedIdx, 0)) dot.classList.add("is-selected");
@@ -345,9 +352,11 @@ page.addEventListener("touchmove", (e) => {
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const dur = prefersReducedMotion ? 0 : undefined;
 
-const introTl = gsap.timeline({ defaults: { ease: "power3.out", duration: dur ?? 0.6 } });
-introTl
-  .to(".start-card", { opacity: 1, y: 0, duration: dur ?? 0.7 })
+// Vendored GSAP should always load; if it somehow doesn't, show the card anyway.
+if (!window.gsap) document.documentElement.classList.add("no-gsap");
+
+const introTl = window.gsap && gsap.timeline({ defaults: { ease: "power3.out", duration: dur ?? 0.6 } });
+introTl?.to(".start-card", { opacity: 1, y: 0, duration: dur ?? 0.7 })
   .to(".eyebrow", { opacity: 1, y: 0 }, "-=0.35")
   .to(".start-card h1", { opacity: 1, y: 0 }, "-=0.4")
   .to(".intro", { opacity: 1, y: 0 }, "-=0.35")

@@ -12,7 +12,7 @@ A minimal typing toy for toddlers — big bouncy letters, bright colours, and ha
 
 ![Tiny Typer screenshot](screenshot.png)
 
-No build tools, no npm, no dependencies — just four static files served from a folder.
+No build tools, no npm — just static files served from a folder. Installs as an app and works offline.
 
 > The 2D sibling of [Tiny Fingers](https://tinyfingers.pages.dev/) ([GitHub](https://github.com/hashmil/tinyfingers)) — same idea, simpler execution.
 
@@ -24,6 +24,11 @@ No build tools, no npm, no dependencies — just four static files served from a
 4. Pick colours from the toolbar dot palette
 5. Cycle fonts (Fredoka, Gaegu, Bubblegum Sans, Patrick Hand)
 6. Switch themes — Paper, Space, Princess, Forest, Ocean, Sunset
+7. A rainbow cursor shows where the next letter will land
+
+## Install as an app
+
+Tiny Typer is a PWA. Add it to the home screen (iPad/iPhone: Share → Add to Home Screen; Android/Chrome: Install app). Installed, it opens full screen with no browser bars and works without a connection.
 
 ## Run locally
 
@@ -37,7 +42,7 @@ Open [http://localhost:8000](http://localhost:8000) in a modern browser.
 
 ## Architecture
 
-Four files, zero build step:
+Zero build step:
 
 | File | What it does |
 |------|-------------|
@@ -45,6 +50,9 @@ Four files, zero build step:
 | `style.css` | All styles — themes, responsive breakpoints, animations, toolbar |
 | `editor.js` | Typing engine — character spans, font cycling, colour management, emoji substitution |
 | `main.js` | App lifecycle — fullscreen, keyboard/mobile input, toolbar controls, theme switching |
+| `sw.js` | Service worker — network first for app files, cached copy offline; caches the Latin Google Fonts |
+| `manifest.webmanifest` | PWA manifest — name, icons, full-screen display |
+| `vendor/gsap.min.js` | GSAP 3.15.1, vendored so the intro animation works offline |
 
 ### Key handling
 

@@ -651,6 +651,18 @@ button:focus-visible {
   font-size: 1rem;
 }
 
+/* ── No GSAP fallback: show the start card without the intro ───────── */
+
+.no-gsap .start-card,
+.no-gsap .eyebrow,
+.no-gsap .start-card h1,
+.no-gsap .intro,
+.no-gsap .actions,
+.no-gsap .github-link {
+  opacity: 1;
+  transform: none;
+}
+
 /* ── Reduced motion ─────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {

@@ -132,15 +132,11 @@ export function createEditor(container) {
   let activeColors = COLORS;
 
   function setDarkMode(isDark) {
+    // Keep the same palette position, so the selected dot and the
+    // letter colour stay in step across light → light theme changes too.
+    const idx = Math.max(activeColors.indexOf(color), 0);
     activeColors = isDark ? COLORS_DARK : COLORS;
-    // Update current color to corresponding position in new palette
-    const oldPalette = isDark ? COLORS : COLORS_DARK;
-    const idx = oldPalette.indexOf(color);
-    if (idx !== -1) {
-      color = activeColors[idx];
-    } else {
-      color = activeColors[0];
-    }
+    color = activeColors[idx];
     syncCursorColor();
   }
 
