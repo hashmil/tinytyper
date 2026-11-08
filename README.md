@@ -1,6 +1,6 @@
 # Tiny Typer
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-tinytyper.pages.dev-ff7aa8?style=for-the-badge)](https://tinytyper.pages.dev/)
+[![Live Site](https://img.shields.io/badge/Live%20Site-tinytyper.hashir.dev-ff7aa8?style=for-the-badge)](https://tinytyper.hashir.dev/)
 [![Cloudflare Pages](https://img.shields.io/badge/Hosted%20on-Cloudflare%20Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
 [![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://gsap.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)<br>
@@ -8,7 +8,7 @@
 
 A minimal typing toy for toddlers — big bouncy letters, bright colours, and happy writing.
 
-**[Try it live](https://tinytyper.pages.dev/)**
+**[Try it live](https://tinytyper.hashir.dev/)**
 
 ![Tiny Typer screenshot](screenshot.png)
 
