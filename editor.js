@@ -48,6 +48,25 @@ export function createEditor(container) {
   let fontIndex = 0;
   let color = COLORS[0];
 
+  // Rainbow cursor: always the last child of the page.
+  // Shows the chosen colour while typing, cycles the rainbow when idle.
+  const cursor = document.createElement("span");
+  cursor.className = "cursor";
+  cursor.setAttribute("aria-hidden", "true");
+  container.appendChild(cursor);
+  let idleTimer;
+
+  function syncCursorColor() {
+    container.style.setProperty("--cursor-color", color);
+  }
+  syncCursorColor();
+
+  function markTyping() {
+    container.classList.add("is-typing");
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => container.classList.remove("is-typing"), 600);
+  }
+
   function scrollToBottom() {
     container.scrollTop = container.scrollHeight;
   }
@@ -61,22 +80,26 @@ export function createEditor(container) {
     span.textContent = display;
     span.style.fontFamily = FONTS[fontIndex].css;
     span.style.color = color;
-    container.appendChild(span);
+    container.insertBefore(span, cursor);
+    markTyping();
     scrollToBottom();
   }
 
   function addNewline() {
-    container.appendChild(document.createElement("br"));
+    container.insertBefore(document.createElement("br"), cursor);
+    markTyping();
     scrollToBottom();
   }
 
   function deleteChar() {
-    const last = container.lastChild;
+    const last = cursor.previousSibling;
     if (last) container.removeChild(last);
+    markTyping();
   }
 
   function clear() {
     container.innerHTML = "";
+    container.appendChild(cursor);
   }
 
   function setFont(index) {
@@ -91,6 +114,7 @@ export function createEditor(container) {
 
   function setColor(hex) {
     color = hex;
+    syncCursorColor();
   }
 
   function getFont() {
@@ -117,6 +141,7 @@ export function createEditor(container) {
     } else {
       color = activeColors[0];
     }
+    syncCursorColor();
   }
 
   function getActiveColors() {
